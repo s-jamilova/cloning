@@ -28,7 +28,7 @@ public class SpreadsheetLocation implements Location
         String strRow;
         strCol = cellName.substring(0,1);
         strRow = cellName.substring(1,2);
-        col = strCol - 'a' + 1;
+        col = strCol.toLowerCase() - 'a' + 1;
         row = Integer.parseInt(strRow);
     }
 
