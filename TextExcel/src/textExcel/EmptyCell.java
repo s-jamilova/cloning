@@ -2,7 +2,7 @@ public class EmptyCell implements Cell
 {
     public EmptyCell()
     {
-        super("")
+        super("");
     }
     public String abbreviatedCellText()
     {
