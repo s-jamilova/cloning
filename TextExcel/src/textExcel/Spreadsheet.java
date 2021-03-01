@@ -7,7 +7,6 @@ public class Spreadsheet implements Grid
 	private Cell[][] c;
 	private int x;
 	private int y;
-	@Override
 	public Spreadsheet()
 	{
 
@@ -28,28 +27,24 @@ public class Spreadsheet implements Grid
 		return null;
 	}
 
-	@Override
 	public int getRows()
 	{
 		// TODO Auto-generated method stub
 		return c.length;
 	}
 
-	@Override
 	public int getCols()
 	{
 		// TODO Auto-generated method stub
 		return c[0].length;
 	}
 
-	@Override
 	public Cell getCell(Location loc)
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
