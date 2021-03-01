@@ -7,12 +7,10 @@ import java.util.Scanner;
 
 public class TextExcel
 {
-
+ 	public static Grid sheet = new Spreadsheet();
 	public static void main(String[] args)
 	{
 	    // Add your command loop here
-		public static Grid sheet = new Spreadsheet();
-		public static void main(String[] args){
 		String input = "";
 		Scanner con = new Scanner(System.in);
 		System.out.println(sheet.getGridText());
