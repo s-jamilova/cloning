@@ -17,7 +17,7 @@ public class Spreadsheet implements Grid
 		{
 			for (int j = 0; j < x; j++)
 			{
-				c[i][j] = new EmptyCell();
+				c[i][j] = "";
 			}
 		}
 	}
