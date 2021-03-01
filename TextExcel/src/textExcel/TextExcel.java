@@ -20,5 +20,5 @@ public class TextExcel
 			input = con.nextLine();
 		}
 	}
-	}
 }
+
