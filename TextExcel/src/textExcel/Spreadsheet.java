@@ -14,7 +14,7 @@ public class Spreadsheet implements Grid
 		x = 12;
 		y = 20;
 		c = new Cell[y][x];
-		for (int = 0; i < y; i++)
+		for (int i = 0; i < y; i++)
 		{
 			for (int j = 0; j < x; j++)
 			{
