@@ -10,5 +10,8 @@ public class EmptyCell implements Cell
     {
         return "";
     }
-    public double getDoubleValue();
+    public double getDoubleValue()
+    {
+        return 0;
+    }
 }
