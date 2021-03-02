@@ -29,7 +29,7 @@ public class SpreadsheetLocation implements Location
         strCol = cellName.substring(0,1);
         strRow = cellName.substring(1);
         col = getColumnNumberFromColumnLetter(strCol);
-        row = Integer.parseInt(strRow);
+        row = Integer.parseInt(strRow) - 1;
     }
     public static int getColumnNumberFromColumnLetter(String columnLetter)
     {
