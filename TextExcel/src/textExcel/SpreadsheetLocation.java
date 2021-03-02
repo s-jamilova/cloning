@@ -28,8 +28,11 @@ public class SpreadsheetLocation implements Location
         String strRow;
         strCol = cellName.substring(0,1);
         strRow = cellName.substring(1,2);
-        col = strCol.charAt(0) - 'a' + 1;
-        row = Integer.parseInt(strRow);
+        col = getColumnNumberFromColumnLetter(strCol);
+    }
+    public static int getColumnNumberFromColumnLetter(String columnLetter)
+    {
+        return Character.toUpperCase(columnLetter.charAt(0)) - 'A';
     }
 
 }
