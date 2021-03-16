@@ -7,18 +7,16 @@ public class Spreadsheet implements Grid
 	private Cell[][] c;
 	private int x;
 	private int y;
-	public Spreadsheet()
-	{
+	public Spreadsheet() {
 
 		x = 12;
 		y = 20;
 		c = new Cell[y][x];
-		for (int i = 0; i < y; i++)
-		{
-			for (int j = 0; j < x; j++)
-			{
+		for (int i = 0; i < y; i++) {
+			for (int j = 0; j < x; j++) {
 				data[i][j] = new EmptyCell();
 			}
+		}
 	}
 	public String processCommand(String command)
 	{
