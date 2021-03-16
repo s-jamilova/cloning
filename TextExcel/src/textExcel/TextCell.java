@@ -15,4 +15,7 @@ public class TextCell implements Cell{
     {
         return "\"" + text + "\"";
     }
+    public double getDoubleValue(){
+        return 0;
+    }
 }
