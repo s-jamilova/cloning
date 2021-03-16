@@ -45,15 +45,7 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
-		String grid = "   ";
-		for (byte i = 0; i < c[0].length; i++) {
-			grid += String.format("|%-10c", (char) (i + 'A'));
-		}
-		grid += "|\n";
-		for (int i = 0; i < c.length; i++) {
-			grid += String.format("%-3d", i + 1) + formatRow(c[i]);
-		}
-		return grid;
+		return null;
 	}
 	
 	// You are free to use this helper method.  It takes a column letter (starting at "A")
