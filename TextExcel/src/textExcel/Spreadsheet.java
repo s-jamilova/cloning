@@ -14,7 +14,7 @@ public class Spreadsheet implements Grid
 		c = new Cell[y][x];
 		for (int i = 0; i < y; i++) {
 			for (int j = 0; j < x; j++) {
-				data[i][j] = new EmptyCell();
+				c[i][j] = new EmptyCell();
 			}
 		}
 	}
@@ -46,12 +46,12 @@ public class Spreadsheet implements Grid
 	{
 		// TODO Auto-generated method stub
 		String grid = "   ";
-		for (byte i = 0; i < data[0].length; i++) {
+		for (byte i = 0; i < c[0].length; i++) {
 			grid += String.format("|%-10c", (char) (i + 'A'));
 		}
 		grid += "|\n";
-		for (int i = 0; i < data.length; i++) {
-			grid += String.format("%-3d", i + 1) + formatRow(data[i]);
+		for (int i = 0; i < c.length; i++) {
+			grid += String.format("%-3d", i + 1) + formatRow(c[i]);
 		}
 		return grid;
 	}
