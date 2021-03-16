@@ -13,6 +13,12 @@ public class Spreadsheet implements Grid
 		x = 12;
 		y = 20;
 		c = new Cell[y][x];
+		for (int i = 0; i < y; i++)
+		{
+			for (int j = 0; j < x; j++)
+			{
+				data[i][j] = new EmptyCell();
+			}
 	}
 	public String processCommand(String command)
 	{
@@ -41,7 +47,15 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
-		return null;
+		String grid = "   ";
+		for (byte i = 0; i < data[0].length; i++) {
+			grid += String.format("|%-10c", (char) (i + 'A'));
+		}
+		grid += "|\n";
+		for (int i = 0; i < data.length; i++) {
+			grid += String.format("%-3d", i + 1) + formatRow(data[i]);
+		}
+		return grid;
 	}
 	
 	// You are free to use this helper method.  It takes a column letter (starting at "A")
