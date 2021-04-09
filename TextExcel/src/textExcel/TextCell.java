@@ -1,21 +1,23 @@
 package textExcel;
 
-public class TextCell implements Cell{
-    private String text;
-    public TextCell(String text)
-    {
-        this.text = text;
-    }
-    public String abbreviatedCellText()
-    {
-        return (text + "            ").substring(0,10);
+public class TextCell implements Cell {
+    String value;
+    TextCell(String value){
+        this.value=value;
     }
 
-    public String fullCellText()
-    {
-        return "\"" + text + "\"";
+    @Override
+    public String abbreviatedCellText() {
+        return Helper.abbreviateString(value,10);
     }
-    public double getDoubleValue(){
-        return 0;
+
+    @Override
+    public String fullCellText() {
+        String returnValue="";
+        returnValue+="\"";
+        returnValue+=value;
+        returnValue+="\"";
+        return returnValue;
     }
+
 }
