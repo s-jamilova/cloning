@@ -25,7 +25,7 @@ public class Spreadsheet implements Grid
 			return "";
 		}
 
-		else if(command.equals("clear")){
+		if(command.toLowerCase.equals("clear")){
 			c = new Cell[20][12];
 			for(int x = 0; x < c.length; x++) {
 				for(int y = 0; y < c[x].length; y++) {
@@ -48,17 +48,20 @@ public class Spreadsheet implements Grid
 			}
 
 		}
-		else if (command.contains("\"")) {
+		if (command.contains("\"")) {
 			String stringValue = command.substring(command.indexOf("=") + 2);
 			stringValue = stringValue.replace("\"","");
 			Location loc = new SpreadsheetLocation(command.substring(0,2));
 			c[loc.getRow()][loc.getCol()] = new TextCell(stringValue);
 			return getGridText();
 		}
-		else if (isClearCell(command)) { // if clearing a specific cell
+		if (isClearCell(command)) {
 			Location target = new SpreadsheetLocation(command.substring(command.indexOf(" ") + 1));
 			c[target.getRow()][target.getCol()] = new EmptyCell();
 			return getGridText();
+		}
+		if (command.equals("clear")) {
+			clear();
 		}
 		return "";
 
