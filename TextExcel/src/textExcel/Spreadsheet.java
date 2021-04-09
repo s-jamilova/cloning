@@ -52,7 +52,28 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
-		return null;
+		public String getGridText(){ // returns entire grid, formatted as text for display
+		String formatted;
+		formatted = "   |A         |B         |C         |D         |E         |F         |G         |H         |I         |J         |K         |L         |\n";
+		for(int x = 0; x < c.length - 11; x++) {
+			String temp = (x+1) + "  |";
+			for(int y = 0; y < c[x].length; y++) {
+				System.out.println(c[x][y].abbreviatedCellText());
+				temp = temp + c[x][y].abbreviatedCellText() + "|";
+			}
+			formatted = formatted + temp + "\n" ;
+		}
+		for(int x = 9; x < c.length; x++) {
+			String temp = (x+1) + " |";
+			for(int y = 0; y < c[x].length; y++) {
+				System.out.println(c[x][y].abbreviatedCellText());
+				temp = temp + c[x][y].abbreviatedCellText() + "|";
+			}
+			formatted = formatted + temp + "\n" ;
+		}
+		return formatted;
+	}
+	}
 	}
 	
 	// You are free to use this helper method.  It takes a column letter (starting at "A")
