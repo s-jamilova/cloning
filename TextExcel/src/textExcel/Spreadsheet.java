@@ -72,12 +72,4 @@ public class Spreadsheet implements Grid
 	{
 		return "" + (char) ('A' + columnNumber);
 	}
-	public static void clearAll()
-	{
-		for (int i = 0; i < y; i++) {
-			for (int j = 0; j < x; j++) {
-				c[i][j] = new EmptyCell();
-			}
-		}
-	}
 }
