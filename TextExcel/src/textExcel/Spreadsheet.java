@@ -21,7 +21,7 @@ public class Spreadsheet implements Grid
 	private static int spaceFinder(String command)
 	{
 		int index = 0;
-		while (idx < command.length() && Character.isLetterOrDigit(command.charAt(idx))) {
+		while (index < command.length() && Character.isLetterOrDigit(command.charAt(index))) {
 			index++;
 		}
 		return index;
@@ -93,5 +93,13 @@ public class Spreadsheet implements Grid
 	public static String getColumnLetterFromColumnNumber(int columnNumber)
 	{
 		return "" + (char) ('A' + columnNumber);
+	}
+	public static void clearAll()
+	{
+		for (int i = 0; i < y; i++) {
+			for (int j = 0; j < x; j++) {
+				c[i][j] = new EmptyCell();
+			}
+		}
 	}
 }
