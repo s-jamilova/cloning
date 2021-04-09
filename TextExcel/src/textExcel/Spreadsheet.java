@@ -25,7 +25,7 @@ public class Spreadsheet implements Grid
 			return "";
 		}
 
-		if(command.toLowerCase.equals("clear")){
+		if(command.toLowerCase().equals("clear")){
 			c = new Cell[20][12];
 			for(int x = 0; x < c.length; x++) {
 				for(int y = 0; y < c[x].length; y++) {
