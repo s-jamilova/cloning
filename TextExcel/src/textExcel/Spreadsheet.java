@@ -18,10 +18,51 @@ public class Spreadsheet implements Grid
 			}
 		}
 	}
+	private static int spaceFinder(String command)
+	{
+		int index = 0;
+		while (idx < command.length() && Character.isLetterOrDigit(command.charAt(idx))) {
+			index++;
+		}
+		return index;
+	}
 	public String processCommand(String command)
 	{
 		// TODO Auto-generated method stub
-		return "";
+		if (command.equals("")) {
+			return "";
+		}
+		int spaceIndex = spaceFinder(command);
+		String firstPart = command.substring(0, spaceIndex).toLowerCase();
+		String otherPart = command.substring(spaceIndex);
+		if (firstPart.equals("clear")) {
+			// COMMAND: Clear the whole grid
+			if (otherPart.equals("")) {
+				clearAll();
+				return getGridText();
+			}
+			// COMMAND: Clear a single cell
+			return clearCellCommand(otherPart, command);
+		}
+		SpreadsheetLocation loc = SpreadsheetLocation.fromCellName(firstWord);
+		if (loc != null) {
+			// COMMAND: Get the contents of a single cell
+			if (rest.equals("")) {
+				return getCellCommand(loc, command);
+			}
+			// COMMAND: Set a cell
+			else if (rest.charAt(0) == '=') {
+				return setCellCommand(loc, rest.substring(1).trim(), command);
+			}
+		} else {
+			return "ERROR: Invalid Cell Location: " + command;
+		}
+
+		return "ERROR: Unrecognized command: " + command;
+	}
+
+
+
 	}
 
 	public int getRows()

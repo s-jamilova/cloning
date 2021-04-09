@@ -8,6 +8,16 @@ public class SpreadsheetLocation implements Location
     private int row;
     private String[] alph;
     @Override
+    public SpreadsheetLocation(String cellName)
+    {
+        // TODO: Fill this out with your own code
+        String strCol;
+        String strRow;
+        strCol = cellName.substring(0,1);
+        strRow = cellName.substring(1);
+        col = getColumnNumberFromColumnLetter(strCol);
+        row = Integer.parseInt(strRow) - 1;
+    }
     public int getRow()
     {
         // TODO Auto-generated method stub
@@ -20,17 +30,9 @@ public class SpreadsheetLocation implements Location
         // TODO Auto-generated method stub
         return col;
     }
+
     
-    public SpreadsheetLocation(String cellName)
-    {
-        // TODO: Fill this out with your own code
-        String strCol;
-        String strRow;
-        strCol = cellName.substring(0,1);
-        strRow = cellName.substring(1);
-        col = getColumnNumberFromColumnLetter(strCol);
-        row = Integer.parseInt(strRow) - 1;
-    }
+
     public static int getColumnNumberFromColumnLetter(String columnLetter)
     {
         return Character.toUpperCase(columnLetter.charAt(0)) - 'A';
