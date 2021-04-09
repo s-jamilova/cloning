@@ -52,7 +52,6 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
-		public String getGridText(){ // returns entire grid, formatted as text for display
 		String formatted;
 		formatted = "   |A         |B         |C         |D         |E         |F         |G         |H         |I         |J         |K         |L         |\n";
 		for(int x = 0; x < c.length - 11; x++) {
@@ -73,8 +72,8 @@ public class Spreadsheet implements Grid
 		}
 		return formatted;
 	}
-	}
-	}
+
+
 	
 	// You are free to use this helper method.  It takes a column letter (starting at "A")
 	// and returns the column number corresponding to that letter (0 for "A", 1 for "B", etc.)  
