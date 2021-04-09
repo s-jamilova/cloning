@@ -21,6 +21,9 @@ public class Spreadsheet implements Grid
 	public String processCommand(String command)
 	{
 		// TODO Auto-generated method stub
+		if (command.equals("")) {
+			return "";
+		}
 		if(command.equals("quit")) {
 			return "";
 		}
