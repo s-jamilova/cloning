@@ -51,7 +51,7 @@ public class Spreadsheet implements Grid
 			int col = (int)command.charAt(0) - 65;
 			int row = (int)command.charAt(1) - 49;
 			System.out.println("col = " + col +", row = " + row);
-			c[col][row] = new TextCell(command.substring(7, command.indexOf("\"")));
+			c[col][row] = new TextCell(command.substring(7, command.indexOf("\"") - 1));
 			System.out.println(c[col][row].abbreviatedCellText());
 		}
 		return "";
