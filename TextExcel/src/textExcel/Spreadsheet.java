@@ -34,11 +34,9 @@ public class Spreadsheet implements Grid
 			}
 			return getGridText();
 		}
-		if (isCellReference(command)) {// if it's a single cell reference
-			if (Character.toUpperCase(command.charAt(0)) - 65 < getCols()) {// if the first character is less than the
-				// number of columns
-				if (Integer.valueOf(command.substring(1)) <= getRows()) {// if the integer portion is less than the
-					// number of rows
+		if (isCellReference(command)) {
+			if (Character.toUpperCase(command.charAt(0)) - 65 < getCols()) {
+				if (Integer.valueOf(command.substring(1)) <= getRows()) {
 					Location loc = new SpreadsheetLocation(command);
 					return (c[loc.getRow()][loc.getCol()].fullCellText());
 				} else {
@@ -52,6 +50,7 @@ public class Spreadsheet implements Grid
 		}
 		else if (command.contains("\"")) {
 			String stringValue = command.substring(command.indexOf("=") + 2);
+			stringValue = stringValue.replaceAll("\"", "");
 			Location loc = new SpreadsheetLocation(command.substring(0,2));
 			c[loc.getRow()][loc.getCol()] = new TextCell(stringValue);
 			return getGridText();
