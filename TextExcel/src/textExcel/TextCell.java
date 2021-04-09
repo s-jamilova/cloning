@@ -11,11 +11,11 @@ public class TextCell implements Cell{
         return (text + "            ").substring(0,10);
     }
 
-    public String fullCellText() {
-        String returnValue="";
-        returnValue+="\"";
-        returnValue+=text;
-        returnValue+="\"";
-        return returnValue;
+    public String fullCellText()
+    {
+        return "\"" + text + "\"";
+    }
+    public double getDoubleValue(){
+        return 0;
     }
 }
