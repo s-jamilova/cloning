@@ -44,22 +44,6 @@ public class Spreadsheet implements Grid
 			// COMMAND: Clear a single cell
 			return clearCellCommand(otherPart, command);
 		}
-		SpreadsheetLocation loc = SpreadsheetLocation.fromCellName(firstWord);
-		if (loc != null) {
-			// COMMAND: Get the contents of a single cell
-			if (rest.equals("")) {
-				return getCellCommand(loc, command);
-			}
-			// COMMAND: Set a cell
-			else if (rest.charAt(0) == '=') {
-				return setCellCommand(loc, rest.substring(1).trim(), command);
-			}
-		} else {
-			return "ERROR: Invalid Cell Location: " + command;
-		}
-
-		return "ERROR: Unrecognized command: " + command;
-	}
 
 
 
