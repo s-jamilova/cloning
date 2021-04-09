@@ -18,4 +18,8 @@ public class TextCell implements Cell{
     public double getDoubleValue(){
         return 0;
     }
+    public String cellType() {
+        return "TextCell";
+    }
+
 }
