@@ -21,7 +21,36 @@ public class Spreadsheet implements Grid
 	public String processCommand(String command)
 	{
 		// TODO Auto-generated method stub
-		return "";
+		if(command.equals("quit")) {
+			return "";
+		}
+		else if(command.equals("clear")){
+			c = new Cell[20][12];
+			for(int x = 0; x < c.length; x++) {
+				for(int y = 0; y < c[x].length; y++) {
+					c[x][y] = new EmptyCell();
+				}
+			}
+			return getGridText();
+		}
+		else if(((Character.isDigit(command.charAt(1))) && (Character.isLetter(command.charAt(0)))) && (command.length() == 2)) {
+			int col = (int)command.charAt(0) - 65;
+			int row = (int)command.charAt(1) - 49;
+			return c[col][row].fullCellText();
+		}
+		else if((command.length()) > 5 && (command.substring(0,4).equals("clear"))) {
+			int col = (int)command.charAt(6) - 65;
+			int row = (int)command.charAt(7) - 49;
+			c[col][row] = new EmptyCell();
+			return getGridText();
+		}
+		else if(command.contains(" = ")) {
+			int col = (int)command.charAt(0) - 65;
+			int row = (int)command.charAt(1) - 49;
+			System.out.println("col = " + col +", row = " + row);
+			c[col][row] = new TextCell(command.substring(7, command.indexOf("\"")));
+			System.out.println(c[col][row].abbreviatedCellText());
+		}
 
 
 
