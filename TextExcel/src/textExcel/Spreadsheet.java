@@ -56,6 +56,11 @@ public class Spreadsheet implements Grid
 			c[loc.getRow()][loc.getCol()] = new TextCell(stringValue);
 			return getGridText();
 		}
+		else if (isClearCell(command)) { // if clearing a specific cell
+			Location target = new SpreadsheetLocation(command.substring(command.indexOf(" ") + 1));
+			c[target.getRow()][target.getCol()] = new EmptyCell();
+			return getGridText();
+		}
 		return "";
 
 
@@ -115,6 +120,15 @@ public class Spreadsheet implements Grid
 				}
 			}
 			return true;
+		}
+		return false;
+	}
+	private boolean isClearCell(String command) {
+		if (command.length() > 6 & command.toLowerCase().startsWith("clear ")) {
+			String cellReference = command.substring(command.indexOf(" ") + 1);
+			if (isCellReference(cellReference)) {
+				return true;
+			}
 		}
 		return false;
 	}
