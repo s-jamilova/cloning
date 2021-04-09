@@ -36,7 +36,7 @@ public class Spreadsheet implements Grid
 		}
 		if (isCellReference(command)) {
 			if (Character.toUpperCase(command.charAt(0)) - 65 < getCols()) {
-				if (Integer.valueOf(command.substring(1)) <= getRows()) {
+				if (Integer.valueOf(command.substring(1,3).trim()) <= getRows()) {
 					Location loc = new SpreadsheetLocation(command);
 					return (c[loc.getRow()][loc.getCol()].fullCellText());
 				} else {
