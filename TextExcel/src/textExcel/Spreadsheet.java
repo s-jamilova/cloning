@@ -24,9 +24,7 @@ public class Spreadsheet implements Grid
 		if (command.equals("")) {
 			return "";
 		}
-		if(command.equals("quit")) {
-			return "";
-		}
+
 		else if(command.equals("clear")){
 			c = new Cell[20][12];
 			for(int x = 0; x < c.length; x++) {
@@ -36,23 +34,14 @@ public class Spreadsheet implements Grid
 			}
 			return getGridText();
 		}
-		else if(((Character.isDigit(command.charAt(1))) && (Character.isLetter(command.charAt(0)))) && (command.length() == 2)) {
-			int col = (int)command.charAt(0) - 65;
-			int row = (int)command.charAt(1) - 49;
-			return c[col][row].fullCellText();
-		}
-		else if((command.length()) > 5 && (command.substring(0,4).equals("clear"))) {
-			int col = (int)command.charAt(6) - 65;
-			int row = (int)command.charAt(7) - 49;
-			c[col][row] = new EmptyCell();
-			return getGridText();
-		}
-		else if(command.contains(" = ")) {
-			int col = (int)command.charAt(0) - 65;
-			int row = (int)command.charAt(1) - 49;
-			System.out.println("col = " + col +", row = " + row);
-			c[col][row] = new TextCell(command.substring(7, command.indexOf("\"") - 1));
-			System.out.println(c[col][row].abbreviatedCellText());
+		else if (command.cointains("\"")) {
+			Location loc = new SpreadsheetLocation(Helper.assignmentCellReference(command));// everything before the
+			// equals sign
+			String stringValue = Helper.assignmentTextValue(command); // everything after the equals sign
+			stringValue = stringValue.replaceAll("\"", "");// remove quotation marks.
+			c[loc.getRow()][loc.getCol()] = new TextCell(stringValue);// Assign the location to be a new text cell
+	
+			return getGridText();// after mutating c, return the updated c
 		}
 		return "";
 
