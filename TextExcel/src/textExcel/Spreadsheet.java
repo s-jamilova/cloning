@@ -34,7 +34,7 @@ public class Spreadsheet implements Grid
 			}
 			return getGridText();
 		}
-		else if (command.cointains("\"")) {
+		else if (command.contains("\"")) {
 			String stringValue = command.substring(command.indexOf("=") + 2);
 			Location loc = new SpreadsheetLocation(command.substring(0,2));
 			c[loc.getRow()][loc.getCol()] = new TextCell(stringValue);
