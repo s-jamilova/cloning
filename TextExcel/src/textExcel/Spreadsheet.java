@@ -39,13 +39,17 @@ public class Spreadsheet implements Grid
 	public Cell getCell(Location loc)
 	{
 		// TODO Auto-generated method stub
-		return null;
+		if (loc.getRow() < 0 || loc.getRow() >= getRows() ||
+				loc.getCol() < 0 || loc.getCol() >= getCols()) {
+			return null;
+		}
+		return c[loc.getRow()][loc.getCol()];
 	}
 
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 	
 	// You are free to use this helper method.  It takes a column letter (starting at "A")
