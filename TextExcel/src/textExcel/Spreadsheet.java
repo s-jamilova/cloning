@@ -18,32 +18,10 @@ public class Spreadsheet implements Grid
 			}
 		}
 	}
-	private static int spaceFinder(String command)
-	{
-		int index = 0;
-		while (index < command.length() && Character.isLetterOrDigit(command.charAt(index))) {
-			index++;
-		}
-		return index;
-	}
 	public String processCommand(String command)
 	{
 		// TODO Auto-generated method stub
-		if (command.equals("")) {
-			return "";
-		}
-		int spaceIndex = spaceFinder(command);
-		String firstPart = command.substring(0, spaceIndex).toLowerCase();
-		String otherPart = command.substring(spaceIndex);
-		if (firstPart.equals("clear")) {
-			// COMMAND: Clear the whole grid
-			if (otherPart.equals("")) {
-				clearAll();
-				return getGridText();
-			}
-			// COMMAND: Clear a single cell
-			return clearCellCommand(otherPart, command);
-		}
+		return null;
 
 
 
