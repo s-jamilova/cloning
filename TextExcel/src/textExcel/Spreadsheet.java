@@ -49,7 +49,7 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
-
+		return null;
 	}
 	
 	// You are free to use this helper method.  It takes a column letter (starting at "A")
