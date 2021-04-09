@@ -14,7 +14,7 @@ public class TextCell implements Cell{
     public String fullCellText() {
         String returnValue="";
         returnValue+="\"";
-        returnValue+=value;
+        returnValue+=text;
         returnValue+="\"";
         return returnValue;
     }
