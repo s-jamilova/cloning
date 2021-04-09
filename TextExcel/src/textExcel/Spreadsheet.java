@@ -35,13 +35,9 @@ public class Spreadsheet implements Grid
 			return getGridText();
 		}
 		else if (command.cointains("\"")) {
-			Location loc = new SpreadsheetLocation(TextCell.assignmentCellReference(command));// everything before the
-			// equals sign
-			String stringValue = TextCell.assignmentTextValue(command); // everything after the equals sign
-			stringValue = stringValue.replaceAll("\"", "");// remove quotation marks.
-			c[loc.getRow()][loc.getCol()] = new TextCell(stringValue);// Assign the location to be a new text cell
-	
-			return getGridText();// after mutating c, return the updated c
+			Location loc = new SpreadsheetLocation(command.substring(0,2));
+			sheet[loc.getRow()][loc.getCol()] = new TextCell(stringValue);
+			return getGridText();
 		}
 		return "";
 
