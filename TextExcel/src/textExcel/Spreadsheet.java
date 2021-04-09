@@ -50,8 +50,7 @@ public class Spreadsheet implements Grid
 		}
 		else if (command.contains("\"")) {
 			String stringValue = command.substring(command.indexOf("=") + 2);
-			stringValue = stringValue.substring(1);
-			stringValue = stringValue.substring(0,stringValue.indexOf("\""));
+			stringValue = stringValue.replace("\"","");
 			Location loc = new SpreadsheetLocation(command.substring(0,2));
 			c[loc.getRow()][loc.getCol()] = new TextCell(stringValue);
 			return getGridText();
