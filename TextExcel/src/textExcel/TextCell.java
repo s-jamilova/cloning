@@ -1,17 +1,16 @@
 package textExcel;
 
-public class TextCell implements Cell {
-    String value;
-    TextCell(String value){
-        this.value=value;
+public class TextCell implements Cell{
+    private String text;
+    public TextCell(String text)
+    {
+        this.text = text;
+    }
+    public String abbreviatedCellText()
+    {
+        return (text + "            ").substring(0,10);
     }
 
-    @Override
-    public String abbreviatedCellText() {
-        return Helper.abbreviateString(value,10);
-    }
-
-    @Override
     public String fullCellText() {
         String returnValue="";
         returnValue+="\"";
@@ -19,5 +18,4 @@ public class TextCell implements Cell {
         returnValue+="\"";
         return returnValue;
     }
-
 }
