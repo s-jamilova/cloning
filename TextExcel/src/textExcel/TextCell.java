@@ -4,7 +4,7 @@ public class TextCell implements Cell{
     private String text;
     public TextCell(String text)
     {
-        this.value=value;
+        this.text = text;
     }
     public String abbreviatedCellText()
     {
